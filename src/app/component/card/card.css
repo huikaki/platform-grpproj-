@@ -1,0 +1,9 @@
+.card {
+  /* width: 137px;
+  height: 180px; */
+  border-radius: 3px;
+}
+.card-container {
+  width: 138px;
+  margin-top: 2%;
+}
