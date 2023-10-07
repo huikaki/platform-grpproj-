@@ -5,7 +5,6 @@ import { getStorage } from "firebase/storage";
 import {
   getAuth,
   createUserWithEmailAndPassword,
-  updateProfil,
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
@@ -25,7 +24,7 @@ export const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 export const firestore = getFirestore(app);
 export default Storage = getStorage();
-export const database = getAuth();
+export const database = getAuth(app);
 export {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
