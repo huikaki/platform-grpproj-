@@ -68,7 +68,7 @@ function UI() {
             width={36}
             height={40}
             alt="logo"
-            className="logo max-[4096px]:absolute mt-3 ml-11 max-sm:ml-[3px] "
+            className="logo fixed max-[4096px]:absolute mt-3 ml-11 max-sm:ml-[3px] "
           ></Image>
           <div
             className={`max-2xl:flex flex-col bg-[#212121] w-[166px] h-full m-0 max-xl:w-[110px] items-start max-sm:hidden ${changeDivStyleByBtn}`}
@@ -88,7 +88,8 @@ function UI() {
           className="w-[7680px] h-full bg-black 
     border: 1px solid white  max-sm:ml-[30px ]"
         >
-          <div className="fixed">
+          {/* {change not fixed - crystal} */}
+          <div className="">
             <div className="flex flex-row search-container">
               <Search />
             </div>
