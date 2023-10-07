@@ -60,15 +60,15 @@ function UI() {
             width={22}
             height={22}
             alt="hamburger"
-            className={`max-[4096px]:absolute mt-4 ml-5`}
+            className={`menubar max-[4096px]:absolute mt-4 ml-5 `}
             onClick={() => setDisplay((prevDisplay) => !prevDisplay)}
           ></Image>
           <Image
             src="./AWA Logo.svg"
             width={36}
-            height={34}
+            height={40}
             alt="logo"
-            className="max-[4096px]:absolute mt-3 ml-11 max-sm:ml-[44px]"
+            className="logo max-[4096px]:absolute mt-3 ml-11 max-sm:ml-[3px] "
           ></Image>
           <div
             className={`max-2xl:flex flex-col bg-[#212121] w-[166px] h-full m-0 max-xl:w-[110px] items-start max-sm:hidden ${changeDivStyleByBtn}`}
@@ -93,13 +93,13 @@ function UI() {
               <Search />
             </div>
             <div className="ml-[22px] mr-[11px]">
-              {/* <div className="flex flex-row mt-[10px] mx-[22px]  max-sm:hidden"> */}
-              <div className="flex flex-row mt-[2%] max-moresm:hidden ">
+              {/* <div className="flex flex-row mt-[10px] mx-[22px]  max-sm:hidden">  max-moresm:hidden */}
+              <div className="flex flex-row mt-[2%] max-sm:mt-[20%]">
                 <Sort />
               </div>
             </div>
-
-            <div className="ml-[20px] mb-[20px] 	flex flex-row gap-[18px] max-moresm:hidden ">
+            {/*short */}
+            <div className="ml-[20px] mb-[20px] 	flex flex-row gap-[18px]  ">
               <Card />
               {/* overflow-x-visible */}
               <Card />

@@ -1,17 +1,20 @@
 import Image from "next/image";
 import "./search.scss";
+import Link from "next/link";
 // import "../../styles.scss";
 import SearchFilter from "./SearchFunction";
 function Search() {
   return (
     <>
       <div className="search-group mt-2 flex flex-row max-sm:hidden">
+        {/* search box */}
         <input
           id="input"
           // className="search-bar mt-2 ml-[20%] bg-[#181818] 2k:w-[1000px] fullhd:w-[800px] max-less2xl:w-[650px] max-morelg:w-[450px] max-lg:w-[300px] max-sm:hidden"
           className="search-bar mt-2 bg-[#181818] 2k:w-[1000px]  xl:w-[600px] md:w-[340px]"
         />
         {/* <div className="search-bar "><SearchFilter /></div> */}
+        {/* search icon */}
         <Image
           src="/icons8-search-50.png"
           height={50}
@@ -45,13 +48,14 @@ function Search() {
           width={24}
           className="hoverEffectEl alert mt-2.5"
         />
-        {/* login */}
-        <Image
-          src="/Profile.svg"
-          height={24}
-          width={24}
-          className="hoverEffectEl Profile mt-2.5"
-        />
+        <Link href="/login">
+          <Image
+            src="/Profile.svg"
+            height={24}
+            width={24}
+            className="hoverEffectEl Profile mt-2.5"
+          />
+        </Link>
       </div>
     </>
   );
