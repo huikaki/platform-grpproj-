@@ -38,12 +38,14 @@ function Search() {
           width={24}
           className="hoverEffectEl more mt-2.5 max-sm:hidden"
         />
+        {/* alert function */}
         <Image
           src="/alert.svg"
           height={24}
           width={24}
           className="hoverEffectEl alert mt-2.5"
         />
+        {/* login */}
         <Image
           src="/Profile.svg"
           height={24}
