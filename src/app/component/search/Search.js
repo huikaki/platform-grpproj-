@@ -1,5 +1,6 @@
 import Image from "next/image";
 import "./search.scss";
+import Link from "next/link";
 // import "../../styles.scss";
 import SearchFilter from "./SearchFunction";
 function Search() {
@@ -44,12 +45,14 @@ function Search() {
           width={24}
           className="hoverEffectEl alert mt-2.5"
         />
-        <Image
-          src="/Profile.svg"
-          height={24}
-          width={24}
-          className="hoverEffectEl Profile mt-2.5"
-        />
+        <Link href="/login">
+          <Image
+            src="/Profile.svg"
+            height={24}
+            width={24}
+            className="hoverEffectEl Profile mt-2.5"
+          />
+        </Link>
       </div>
     </>
   );
