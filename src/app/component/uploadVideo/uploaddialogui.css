@@ -1,0 +1,36 @@
+form{
+    width: 100%;
+}
+.inputtile{
+    width: 100%;
+    margin: auto;
+    border: 1px;
+    border-color:silver;
+}
+
+.inputdes{
+    width: 100%;
+    margin: auto;
+    border: 1px;
+    border-color:silver;
+}
+
+.tags{
+    width: 100%;
+    margin: auto;
+    border: 1px;
+    border-color:silver;
+}
+.progressbar{
+    padding-right: 5%;
+}
+.uploadformbutton{
+    display: flex;
+    flex-direction: row;
+   justify-content: space-around;
+   padding-top: 5%;
+}
+.uploadformbutton>button{
+    border: 1px;
+    border-color:silver;
+}
