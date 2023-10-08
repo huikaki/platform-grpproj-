@@ -5,8 +5,9 @@ function LeftNav(props) {
   return leftNavContent.map((item, index) => (
     <div
       key={index}
-      className={`${props.name} leftNavContainer hoverEffect flex flex-row w-[200px] h-auto py-[5px] max-xl:flex-col `}
+      className={`${props.name} leftNavContainer hoverEffect flex flex-row w-[200px] h-auto py-[5px] max-xl:flex-col`}
     >
+      
       <Image
         src={`/${item.src}`}
         width={24}
