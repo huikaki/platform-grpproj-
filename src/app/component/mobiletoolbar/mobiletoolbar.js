@@ -4,12 +4,46 @@ import { useState } from "react";
 import UploadPop from "../uploadVideo/uploadFun";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-
+import { useAuthContext } from "@/app/contexts/AuthContext";
+import Alert from "@mui/material/Alert";
+import Stack from "@mui/material/Stack";
+import Collapse from "@mui/material/Collapse";
 export default function MobileToolBar() {
   const router = useRouter();
   const [show, setShow] = useState(false);
+  const { user } = useAuthContext();
+  const [open, setOpen] = useState(true);
   console.log(show);
 
+  if (show && user) {
+    return (
+      <UploadPop
+        name={show}
+        onClose={() => {
+          setShow(false);
+        }}
+      />
+    );
+  }
+  if (!user && show) {
+    return (
+      <Stack
+        sx={{ width: "100%", position: "absolute", top: 0, right: 0 }}
+        spacing={2}
+      >
+        <Collapse in={open}>
+          <Alert
+            onClose={() => {
+              setOpen(false);
+            }}
+            severity="error"
+          >
+            Please Login In Upload Video!
+          </Alert>
+        </Collapse>
+      </Stack>
+    );
+  }
   return (
     <div>
       <div class="fixed bottom-0 z-50 w-full -translate-x-1/2 border-black border-t bg-black left-1/2 border-t-stone-100">
@@ -106,14 +140,19 @@ export default function MobileToolBar() {
           </div>
         </div>
       </div>
-      {show && (
+      {/* {!user && (
+        <Stack sx={{ width: "100%" }} spacing={2}>
+          <Alert severity="error">Please Login Uo Upload Video!</Alert>
+        </Stack>
+      )} */}
+      {/* {show && (
         <UploadPop
           name={show}
           onClose={() => {
             setShow(false);
           }}
         />
-      )}
+      )} */}
     </div>
   );
 }
