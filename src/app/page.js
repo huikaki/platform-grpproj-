@@ -14,7 +14,7 @@ import SearchFilter from "./component/search/SearchFunction";
 import LeftLibrary from "./component/leftLibrary/LeftLibrary";
 import Card from "./component/card/Card";
 import Cardnew from "./component/card/cardnew";
-
+import MobileToolBar from "./component/mobiletoolbar/mobiletoolbar";
 function UI() {
   const [display, setDisplay] = useState(false);
   const changeDisplayWidthByBtn = display ? "togglewidth" : "togglewidthAgain";
@@ -69,7 +69,7 @@ function UI() {
             width={36}
             height={40}
             alt="logo"
-            className="logo fixed max-[4096px]:absolute mt-3 ml-11 max-sm:ml-[3px] "
+            className="logo max-sm:fixed max-[4096px]:absolute mt-3 ml-11 max-sm:ml-[3px] "
           ></Image>
           <div
             className={` max-2xl:flex flex-col bg-[#212121] w-[166px] h-full m-0 max-xl:w-[110px] items-start max-sm:hidden ${changeDivStyleByBtn} `}
@@ -119,6 +119,9 @@ function UI() {
             <div className="ml-[20px]">
               {/* <div className="mx-[22px] mt-[27px]  gap-[10px] flex flex-row flex-wrap max-sm:mt-[60px]"> */}
               <VideoItem />
+            </div>
+            <div className="buttomNav sm:hidden">
+            <MobileToolBar />
             </div>
           </div>
         </div>
