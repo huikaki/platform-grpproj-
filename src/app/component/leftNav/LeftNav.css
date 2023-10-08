@@ -8,3 +8,7 @@
 
 
 
+.leftNavContainer{
+  overflow-x: hidden;
+  position: fixed;
+}

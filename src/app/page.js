@@ -13,6 +13,7 @@ import VideoItem from "./component/videoItem/VideoItem";
 import SearchFilter from "./component/search/SearchFunction";
 import LeftLibrary from "./component/leftLibrary/LeftLibrary";
 import Card from "./component/card/Card";
+import Cardnew from "./component/card/cardnew";
 
 function UI() {
   const [display, setDisplay] = useState(false);
@@ -71,13 +72,13 @@ function UI() {
             className="logo fixed max-[4096px]:absolute mt-3 ml-11 max-sm:ml-[3px] "
           ></Image>
           <div
-            className={`max-2xl:flex flex-col bg-[#212121] w-[166px] h-full m-0 max-xl:w-[110px] items-start max-sm:hidden ${changeDivStyleByBtn}`}
+            className={` max-2xl:flex flex-col bg-[#212121] w-[166px] h-full m-0 max-xl:w-[110px] items-start max-sm:hidden ${changeDivStyleByBtn} `}
           >
             <div
               className={`${changeDisplayWidthByBtn} max-2xl:flex flex-col w-[200px] mt-[66px] `}
             >
               {/* start of the list part1 */}
-              <LeftNav name={changeDivStyleByBtn} />
+              <LeftNav name={changeDivStyleByBtn}  />
               <hr className="divide-y-4 divide-gray-300  mt-[30px] mb-[30px]"></hr>
               <LeftLibrary name={changeDivStyleByBtn} />
             </div>
@@ -95,12 +96,18 @@ function UI() {
             </div>
             <div className="ml-[22px] mr-[11px]">
               {/* <div className="flex flex-row mt-[10px] mx-[22px]  max-sm:hidden">  max-moresm:hidden */}
-              <div className="flex flex-row mt-[2%] max-sm:mt-[20%]">
+              <div className="flex flex-row mt-[2%] max-sm:mt-[15%] mb-10">
                 <Sort />
               </div>
             </div>
             {/*short */}
+          
+            <div className="shortItems w-screen">
+            <Cardnew />
+            </div>
+
             <div className="ml-[20px] mb-[20px] 	flex flex-row gap-[18px]  ">
+            
               <Card />
               {/* overflow-x-visible */}
               <Card />
