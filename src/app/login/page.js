@@ -15,15 +15,6 @@ function Page() {
   const handleBack = () => {
     route.push("/");
   };
-  // useEffect(() => {
-  //   setLoading(true);
-  //   if (user == null) {
-  //     setLoading(false);
-  //   } else {
-  //     setLoading(false);
-  //     route.push("/profilepage");
-  //   }
-  // }, [user]);
   const handleSubmit = (e) => {
     console.log(e);
     e.preventDefault();
