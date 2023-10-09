@@ -13,6 +13,7 @@ import VideoItem from "./component/videoItem/VideoItem";
 import SearchFilter from "./component/search/SearchFunction";
 import LeftLibrary from "./component/leftLibrary/LeftLibrary";
 import Card from "./component/card/Card";
+import InputBar from "./component/autosearch/autosearch";
 
 function UI() {
   const [display, setDisplay] = useState(false);
@@ -54,13 +55,13 @@ function UI() {
         <div key={item.id}>{item.title}</div>
       ))} */}
       <div className="flex flex-row h-screen">
-        <div className="">
+        <div>
           <Image
             src="./Hamburger.svg"
             width={22}
             height={22}
             alt="hamburger"
-            className={`max-[4096px]:absolute mt-4 ml-5`}
+            className={`absolute mt-4 ml-5`}
             onClick={() => setDisplay((prevDisplay) => !prevDisplay)}
           ></Image>
           <Image
@@ -70,48 +71,50 @@ function UI() {
             alt="logo"
             className="max-[4096px]:absolute mt-3 ml-11 max-sm:ml-[44px]"
           ></Image>
+        </div>
+        <div
+          className={`max-2xl:flex flex-col bg-[#212121] w-[166px] h-full m-0 max-xl:w-[110px] items-start max-sm:hidden ${changeDivStyleByBtn}`}
+        >
           <div
-            className={`max-2xl:flex flex-col bg-[#212121] w-[166px] h-full m-0 max-xl:w-[110px] items-start max-sm:hidden ${changeDivStyleByBtn}`}
+            className={`${changeDisplayWidthByBtn} max-2xl:flex flex-col w-[200px] mt-[66px] `}
           >
-            <div
-              className={`${changeDisplayWidthByBtn} max-2xl:flex flex-col w-[200px] mt-[66px] `}
-            >
-              {/* start of the list part1 */}
-              <LeftNav name={changeDivStyleByBtn} />
-              <hr className="divide-y-4 divide-gray-300  mt-[30px] mb-[30px]"></hr>
-              <LeftLibrary name={changeDivStyleByBtn} />
-            </div>
+            {/* start of the list part1 */}
+            <LeftNav name={changeDivStyleByBtn} />
+            <hr
+              className={`divide-y-4 divide-gray-300  mt-[30px] mb-[30px]`}
+            ></hr>
+            <LeftLibrary name={changeDivStyleByBtn} />
           </div>
         </div>
+
         {/* bg-[#383838] */}
-        <div
-          className="w-[7680px] h-full bg-black 
-    border: 1px solid white  max-sm:ml-[30px ]"
-        >
-          <div className="fixed">
-            <div className="flex flex-row search-container">
-              <Search />
-            </div>
+        <div className="w-auto h-full bg-black">
+          <div className="fixed bg-black w-[90%]">
+            <Search />
+
             <div className="ml-[22px] mr-[11px]">
               {/* <div className="flex flex-row mt-[10px] mx-[22px]  max-sm:hidden"> */}
-              <div className="flex flex-row mt-[2%] max-moresm:hidden ">
+              <div className="flex flex-row mt-[2%] pb-[15px] max-moresm:hidden ">
                 <Sort />
               </div>
             </div>
+          </div>
+        </div>
+        <div className="flex flex-col ml-[1%]">
+          <div className="bg-black flex flex-row gap-[18px] mt-[6%] max-moresm:hidden ">
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+          </div>
 
-            <div className="ml-[20px] mb-[20px] 	flex flex-row gap-[18px] max-moresm:hidden ">
-              <Card />
-              {/* overflow-x-visible */}
-              <Card />
-              <Card />
-              <Card />
-            </div>
-            {/* <div className="ml-[22px] mt-[27px]  max-sm:pl-[40%] ">Popular</div> */}
-            {/* <div>Popular</div> */}
-            <div className="ml-[20px]">
-              {/* <div className="mx-[22px] mt-[27px]  gap-[10px] flex flex-row flex-wrap max-sm:mt-[60px]"> */}
-              <VideoItem />
-            </div>
+          {/* <div className="ml-[22px] mt-[27px]  max-sm:pl-[40%] ">Popular</div> */}
+          {/* <div>Popular</div> */}
+          <div className="mt-[3%]">
+            {/* <div className="mx-[22px] mt-[27px]  gap-[10px] flex flex-row flex-wrap max-sm:mt-[60px]"> */}
+            <VideoItem />
           </div>
         </div>
       </div>
