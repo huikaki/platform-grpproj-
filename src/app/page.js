@@ -13,6 +13,7 @@ import VideoItem from "./component/videoItem/VideoItem";
 import SearchFilter from "./component/search/SearchFunction";
 import LeftLibrary from "./component/leftLibrary/LeftLibrary";
 import Card from "./component/card/Card";
+import InputBar from "./component/autosearch/autosearch";
 import Cardnew from "./component/card/cardnew";
 import MobileToolBar from "./component/mobiletoolbar/mobiletoolbar";
 function UI() {
@@ -55,12 +56,13 @@ function UI() {
         <div key={item.id}>{item.title}</div>
       ))} */}
       <div className="flex flex-row h-screen">
-        <div className="">
+        <div>
           <Image
             src="./Hamburger.svg"
             width={22}
             height={22}
             alt="hamburger"
+            className={`absolute mt-4 ml-5`}
             className={`menubar max-[4096px]:absolute mt-4 ml-5 `}
             onClick={() => setDisplay((prevDisplay) => !prevDisplay)}
           ></Image>
@@ -71,7 +73,19 @@ function UI() {
             alt="logo"
             className="logo max-sm:fixed max-[4096px]:absolute mt-3 ml-11 max-sm:ml-[3px] "
           ></Image>
+        </div>
+        <div
+          className={`max-2xl:flex flex-col bg-[#212121] w-[166px] h-full m-0 max-xl:w-[110px] items-start max-sm:hidden ${changeDivStyleByBtn}`}
+        >
           <div
+            className={`${changeDisplayWidthByBtn} max-2xl:flex flex-col w-[200px] mt-[66px] `}
+          >
+            {/* start of the list part1 */}
+            <LeftNav name={changeDivStyleByBtn} />
+            <hr
+              className={`divide-y-4 divide-gray-300  mt-[30px] mb-[30px]`}
+            ></hr>
+            <LeftLibrary name={changeDivStyleByBtn} />
             className={` max-2xl:flex flex-col bg-[#212121] w-[166px] h-full m-0 max-xl:w-[110px] items-start max-sm:hidden ${changeDivStyleByBtn} `}
           >
             <div
@@ -84,7 +98,35 @@ function UI() {
             </div>
           </div>
         </div>
+
         {/* bg-[#383838] */}
+        <div className="w-auto h-full bg-black">
+          <div className="fixed bg-black w-[90%]">
+            <Search />
+
+            <div className="ml-[22px] mr-[11px]">
+              {/* <div className="flex flex-row mt-[10px] mx-[22px]  max-sm:hidden"> */}
+              <div className="flex flex-row mt-[2%] pb-[15px] max-moresm:hidden ">
+                <Sort />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="flex flex-col ml-[1%]">
+          <div className="bg-black flex flex-row gap-[18px] mt-[6%] max-moresm:hidden ">
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+          </div>
+
+          {/* <div className="ml-[22px] mt-[27px]  max-sm:pl-[40%] ">Popular</div> */}
+          {/* <div>Popular</div> */}
+          <div className="mt-[3%]">
+            {/* <div className="mx-[22px] mt-[27px]  gap-[10px] flex flex-row flex-wrap max-sm:mt-[60px]"> */}
+            <VideoItem />
         <div
           className="w-[7680px] h-full bg-black 
     border: 1px solid white  max-sm:ml-[30px ]"

@@ -1,10 +1,10 @@
 export const leftNavContent = [
   {
-    src: "shorts.svg",
+    src: "home.svg",
     content: "Home",
   },
   {
-    src: "shorts.svg",
+    src: "explore.svg",
     content: "Explores",
   },
   {
@@ -12,7 +12,7 @@ export const leftNavContent = [
     content: "Shorts",
   },
   {
-    src: "shorts.svg",
+    src: "subscription.svg",
     content: "Subscriptions",
   },
 ];
