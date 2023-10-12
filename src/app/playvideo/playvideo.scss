@@ -1,0 +1,27 @@
+.top-items{
+    display: flex;
+}
+html { height:100%; }
+
+
+.side-nav{
+    height: 100%;
+    width: 220px;
+    background-color: aqua;
+}
+
+.video-continer{
+    display: grid;
+    
+}
+video{
+    width:800px;
+    height: 500px;
+}
+.card{
+    display: flex;
+}
+.card >img{
+    height: 100px;
+    width: 200px;
+}
