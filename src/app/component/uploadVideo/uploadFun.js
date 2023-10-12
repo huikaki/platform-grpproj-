@@ -8,6 +8,7 @@ import { Card, ListItem, ListItemText } from "@mui/material";
 import List from "@mui/material/List";
 import "../../firebaseConfig";
 import "./uploaddialogui.css";
+import { app } from "../../firebaseConfig";
 import {
   getStorage,
   ref,
@@ -16,7 +17,11 @@ import {
 } from "firebase/storage";
 import Stack from "@mui/material/Stack";
 import CircularProgress from "@mui/material/CircularProgress";
-import { sendContactForm } from "./senduploadinfo";
+// import { sendContactForm } from "./senduploadinfo";
+import { addDoc, collection, Timestamp } from "firebase/firestore/lite";
+import { firestore } from "../../firebaseConfig";
+// import { use } from "react";
+import { useAuthContext } from "../../contexts/AuthContext";
 
 function UploadPop(prop) {
   const [onIcon, setOnIcon] = useState(false);
@@ -25,6 +30,7 @@ function UploadPop(prop) {
     setOpen(false);
     prop.onClose();
   };
+  const { user } = useAuthContext();
   const [message, setMessage] = useState("");
   const formRef = useRef();
   const [videoFile, setVideoFile] = useState([]);
@@ -38,7 +44,7 @@ function UploadPop(prop) {
     console.log(e);
     if (videoFile) {
       const name = videoFile.name;
-      const storage = getStorage();
+      const storage = getStorage(app);
       const storageRef = ref(storage, `video/${name}`);
       const uploadTask = uploadBytesResumable(storageRef, videoFile);
       uploadTask.on(
@@ -61,7 +67,7 @@ function UploadPop(prop) {
         },
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-            setDownloadURL(downloadURL);
+            upTotheFireBaseDB(downloadURL);
             console.log(downloadURL);
           });
         }
@@ -70,19 +76,38 @@ function UploadPop(prop) {
       alert("File not found");
     }
 
-    const res = await sendContactForm({
-      title: e.target[0].value,
-      tag: e.target[1].value,
-      des: e.target[2].value,
-      videoLink: { downloadURL },
-    });
-    if (res == 0) {
-      setMessage("Thank you for your valuable comment!");
-      formRef.current.reset();
-    } else {
-      setMessage("Something went wrong! Please try again");
-    }
+    // const res = await sendContactForm({
+    //   title: e.target[0].value,
+    //   tag: e.target[1].value,
+    //   des: e.target[2].value,
+    //   videoLink: { downloadURL },
+    //   user,
+    // });
+    const upTotheFireBaseDB = (url) => {
+      let docDate = {
+        title: e.target[0].value,
+        tag: e.target[1].value,
+        des: e.target[2].value,
+        videoLink: url,
+      };
+      const ref = collection(firestore, `users/${user.uid}/video`);
+      addDoc(ref, docDate, { merge: true })
+        .then(() => {
+          console.log("success");
+        })
+        .catch((error) => {
+          alert(error);
+        });
+    };
   };
+  //   console.log("res", res.videoLink);
+  //   if (res == 0) {
+  //     setMessage("Thank you for your valuable comment!");
+  //     formRef.current.reset();
+  //   } else {
+  //     setMessage("Something went wrong! Please try again");
+  //   }
+  // };
 
   const handleSelectedFile = (file) => {
     if (file.size < 1000000000000) {
@@ -226,5 +251,22 @@ function UploadPop(prop) {
     </div>
   );
 }
-
 export default UploadPop;
+
+// const sendContactForm = async ({ title, tag, des, videoLink, user }) => {
+//   console.log(user.uid);
+//   try {
+//     const ref = collection(firestore, `users/${user.uid}/video`);
+//     await addDoc(ref, {
+//       title,
+//       tag,
+//       des,
+//       videoLink,
+//       sentAt: Timestamp.now().toDate(),
+//     });
+//     return 0;
+//   } catch (err) {
+//     console.log(err);
+//     return -1;
+//   }
+// };
