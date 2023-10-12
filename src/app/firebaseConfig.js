@@ -23,7 +23,7 @@ export const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 export const firestore = getFirestore(app);
-export default Storage = getStorage();
+export const storage = getStorage(app);
 export const database = getAuth(app);
 export {
   createUserWithEmailAndPassword,

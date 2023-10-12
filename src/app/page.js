@@ -25,7 +25,7 @@ function UI() {
     : "ToggleChangeDivStyle";
 
   return (
-    <>
+    <div>
       {/* {data.map((item) => (
         <div key={item.id}>{item.title}</div>
       ))} */}
@@ -36,7 +36,12 @@ function UI() {
             width={22}
             height={22}
             alt="hamburger"
+<<<<<<< HEAD
+            className={`absolute mt-4 ml-5 menubar max-[4096px]:absolute`}
+            // className={`menubar max-[4096px]:absolute mt-4 ml-5 `}
+=======
             className={`absolute mt-4 ml-5 max-sm:hidden`}
+>>>>>>> 544cd4c4fec0b774270ddc8424195c9eecda5cdd
             onClick={() => setDisplay((prevDisplay) => !prevDisplay)}
           ></Image>
           <Image
@@ -58,7 +63,24 @@ function UI() {
             <hr
               className={`divide-y-4 divide-gray-300  mt-[30px] mb-[30px]`}
             ></hr>
+<<<<<<< HEAD
+            <LeftLibrary
+              name={changeDivStyleByBtn}
+              className={` max-2xl:flex flex-col bg-[#212121] w-[166px] h-full m-0 max-xl:w-[110px] items-start max-sm:hidden ${changeDivStyleByBtn} `}
+            />
+            {/* className={` max-2xl:flex flex-col bg-[#212121] w-[166px] h-full m-0 max-xl:w-[110px] items-start max-sm:hidden ${changeDivStyleByBtn} `} */}
+
+            <div
+              className={`${changeDisplayWidthByBtn} max-2xl:flex flex-col w-[200px] mt-[66px] `}
+            >
+              {/* start of the list part1 */}
+              <LeftNav name={changeDivStyleByBtn} />
+              <hr className="divide-y-4 divide-gray-300  mt-[30px] mb-[30px]"></hr>
+              <LeftLibrary name={changeDivStyleByBtn} />
+            </div>
+=======
             <LeftLibrary name={changeDivStyleByBtn} />
+>>>>>>> 544cd4c4fec0b774270ddc8424195c9eecda5cdd
           </div>
         </div>
 
@@ -75,6 +97,62 @@ function UI() {
               </div>
             </div>
           </div>
+<<<<<<< HEAD
+        </div>
+        <div className="flex flex-col ml-[1%]">
+          <div className="bg-black flex flex-row gap-[18px] mt-[6%] max-moresm:hidden ">
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+          </div>
+
+          {/* <div className="ml-[22px] mt-[27px]  max-sm:pl-[40%] ">Popular</div> */}
+          {/* <div>Popular</div> */}
+          <div className="mt-[3%]">
+            {/* <div className="mx-[22px] mt-[27px]  gap-[10px] flex flex-row flex-wrap max-sm:mt-[60px]"> */}
+            <VideoItem />
+            <div
+              className="w-[7680px] h-full bg-black 
+    border: 1px solid white  max-sm:ml-[30px ]"
+            >
+              {/* {change not fixed - crystal} */}
+              <div className="">
+                <div className="flex flex-row search-container">
+                  <Search />
+                </div>
+                <div className="ml-[22px] mr-[11px]">
+                  {/* <div className="flex flex-row mt-[10px] mx-[22px]  max-sm:hidden">  max-moresm:hidden */}
+                  <div className="flex flex-row mt-[2%] max-sm:mt-[15%] mb-10">
+                    <Sort />
+                  </div>
+                </div>
+                {/*short */}
+
+                <div className="shortItems w-screen">
+                  <Cardnew />
+                </div>
+
+                <div className="ml-[20px] mb-[20px] 	flex flex-row gap-[18px]  ">
+                  <Card />
+                  {/* overflow-x-visible */}
+                  <Card />
+                  <Card />
+                  <Card />
+                </div>
+                {/* <div className="ml-[22px] mt-[27px]  max-sm:pl-[40%] ">Popular</div> */}
+                {/* <div>Popular</div> */}
+                <div className="ml-[20px]">
+                  {/* <div className="mx-[22px] mt-[27px]  gap-[10px] flex flex-row flex-wrap max-sm:mt-[60px]"> */}
+                  <VideoItem />
+                </div>
+                <div className="buttomNav sm:hidden">
+                  <MobileToolBar />
+                </div>
+              </div>
+=======
           <div className="flex flex-col ml-[1%]">
             <div className=" bg-black flex flex-row gap-[18px] mt-[2%] max-moresm:hidden ">
               <Cardnew />
@@ -85,14 +163,19 @@ function UI() {
             <div className="mt-[3%] flex-wrap flex-1">
               {/* <div className="mx-[22px] mt-[27px]  gap-[10px] flex flex-row flex-wrap max-sm:mt-[60px]"> */}
               <VideoItem />
+>>>>>>> 544cd4c4fec0b774270ddc8424195c9eecda5cdd
             </div>
           </div>
         </div>
       </div>
+<<<<<<< HEAD
+    </div>
+=======
       <div className="morethaniphone12:hidden">
         <MobileToolBar />
       </div>
     </>
+>>>>>>> 544cd4c4fec0b774270ddc8424195c9eecda5cdd
   );
 }
 
