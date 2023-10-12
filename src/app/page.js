@@ -62,7 +62,6 @@ function UI() {
             width={22}
             height={22}
             alt="hamburger"
-            className={`absolute mt-4 ml-5`}
             className={`menubar max-[4096px]:absolute mt-4 ml-5 `}
             onClick={() => setDisplay((prevDisplay) => !prevDisplay)}
           ></Image>
@@ -86,8 +85,8 @@ function UI() {
               className={`divide-y-4 divide-gray-300  mt-[30px] mb-[30px]`}
             ></hr>
             <LeftLibrary name={changeDivStyleByBtn} />
-            className={` max-2xl:flex flex-col bg-[#212121] w-[166px] h-full m-0 max-xl:w-[110px] items-start max-sm:hidden ${changeDivStyleByBtn} `}
-          >
+            {/* className={` max-2xl:flex flex-col bg-[#212121] w-[166px] h-full m-0 max-xl:w-[110px] items-start max-sm:hidden ${changeDivStyleByBtn} `}
+          > */}
             <div
               className={`${changeDisplayWidthByBtn} max-2xl:flex flex-col w-[200px] mt-[66px] `}
             >
@@ -167,6 +166,8 @@ function UI() {
             </div>
           </div>
         </div>
+      </div>
+      </div>
       </div>
     </>
   );

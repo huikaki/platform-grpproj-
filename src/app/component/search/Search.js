@@ -3,13 +3,14 @@ import "./search.scss";
 // import "../../styles.scss";
 import SearchFilter from "./SearchFunction";
 import InputBar from "../autosearch/autosearch";
+import Link from "next/link";
 function Search() {
   return (
     <>
       <div className="flex flex-row mt-4">
         <div className="mx-auto flex flex-row max-xl:  max-sm:hidden">
           <div className="">
-            <InputBar />
+           {/* <InputBar /> */}
             {/* <input className="outline-none	p-[10px] text-[16px] border-none	search-bar  bg-[#181818] max-4k:w-[1000px] max-2k:w-[800px] max-less2k:w-[700px] max-2xl:w-[600px] max-xl:w-[500px] max-lg:w-[360px] max-moremd:w-[200px]max-sm:hidden" /> */}
             {/* <div className="search-bar "><SearchFilter /></div> */}
           </div>
@@ -95,7 +96,9 @@ function Search() {
             width={24}
             className="hoverEffectEl Profile mt-2.5"
           />
+          </Link>
         </div>
+      </div>
       </div>
     </>
   );
