@@ -41,21 +41,22 @@ function VideoItem() {
   }
   return (
     <>
-      <div className="max-moresm:overflow-hidden">
+      <div className="">
         {/* overflow-y-scroll  */}
         {/* <div className="flex flex-row flex-wrap gap-3 justify-evenly "> */}
-        <div className="video-grid">
+        <div className="video-grid video-flex w-[100%] ">
           {data.map((item, index) => (
-            <div key={index} className="">
+            <div key={index} className="flex-1 w-[100%]">
               <div className="hoverEffectEl video-size">
                 <video
-                  className="w-[340px] h-[200px] "
+                  className="min-w-[340px] w-[100%]"
                   controls={false}
                   onClick={(e) => {
                     console.log(e.target.paused);
                     const videoEle = e.target;
                     if (e.target.paused) {
                       e.target.play();
+                      window.open(item.videoUrl, "_blank");
                     } else {
                       e.target.pause();
                     }
