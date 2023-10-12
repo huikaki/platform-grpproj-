@@ -16,62 +16,40 @@ import Card from "./component/card/Card";
 import InputBar from "./component/autosearch/autosearch";
 import Cardnew from "./component/card/cardnew";
 import MobileToolBar from "./component/mobiletoolbar/mobiletoolbar";
+
 function UI() {
   const [display, setDisplay] = useState(false);
   const changeDisplayWidthByBtn = display ? "togglewidth" : "togglewidthAgain";
   const changeDivStyleByBtn = display
     ? "changeDivStyle"
     : "ToggleChangeDivStyle";
-  // const [data, setData] = useState(null);
-  // const [loading, setLoading] = useState(true);
-  // const [error, setError] = useState(null);
-
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     try {
-  //       const response = await axios.get(
-  //         "https://gist.githubusercontent.com/poudyalanil/ca84582cbeb4fc123a13290a586da925/raw/14a27bd0bcd0cd323b35ad79cf3b493dddf6216b/videos.json"
-  //       );
-  //       setData(response.data);
-  //       setLoading(false);
-  //     } catch (error) {
-  //       setError(error);
-  //       setLoading(false);
-  //     }
-  //   }
-  //   fetchData();
-  // }, []);
-
-  // if (loading) {
-  //   return <div>Loading...</div>;
-  // }
-
-  // if (error) {
-  //   return <div>Error: {error.message}</div>;
-  // }
 
   return (
     <div>
       {/* {data.map((item) => (
         <div key={item.id}>{item.title}</div>
       ))} */}
-      <div className="flex flex-row h-screen">
+      <div className="flex flex-row h-[100%]">
         <div>
           <Image
             src="./Hamburger.svg"
             width={22}
             height={22}
             alt="hamburger"
+<<<<<<< HEAD
             className={`absolute mt-4 ml-5 menubar max-[4096px]:absolute`}
             // className={`menubar max-[4096px]:absolute mt-4 ml-5 `}
+=======
+            className={`absolute mt-4 ml-5 max-sm:hidden`}
+>>>>>>> 544cd4c4fec0b774270ddc8424195c9eecda5cdd
             onClick={() => setDisplay((prevDisplay) => !prevDisplay)}
           ></Image>
           <Image
             src="./AWA Logo.svg"
             width={36}
-            height={40}
+            height={34}
             alt="logo"
-            className="logo max-sm:fixed max-[4096px]:absolute mt-3 ml-11 max-sm:ml-[3px] "
+            className="max-[4096px]:absolute mt-3 ml-11 max-sm:ml-[22px]"
           ></Image>
         </div>
         <div
@@ -85,6 +63,7 @@ function UI() {
             <hr
               className={`divide-y-4 divide-gray-300  mt-[30px] mb-[30px]`}
             ></hr>
+<<<<<<< HEAD
             <LeftLibrary
               name={changeDivStyleByBtn}
               className={` max-2xl:flex flex-col bg-[#212121] w-[166px] h-full m-0 max-xl:w-[110px] items-start max-sm:hidden ${changeDivStyleByBtn} `}
@@ -99,21 +78,26 @@ function UI() {
               <hr className="divide-y-4 divide-gray-300  mt-[30px] mb-[30px]"></hr>
               <LeftLibrary name={changeDivStyleByBtn} />
             </div>
+=======
+            <LeftLibrary name={changeDivStyleByBtn} />
+>>>>>>> 544cd4c4fec0b774270ddc8424195c9eecda5cdd
           </div>
         </div>
 
         {/* bg-[#383838] */}
-        <div className="w-auto h-full bg-black">
-          <div className="fixed bg-black w-[90%]">
+        <div className="h-full bg-black">
+          <div className="static bg-black ">
+            {/* <div className="static bg-black  max-w-screen-morexl	"> */}
             <Search />
 
             <div className="ml-[22px] mr-[11px]">
               {/* <div className="flex flex-row mt-[10px] mx-[22px]  max-sm:hidden"> */}
-              <div className="flex flex-row mt-[2%] pb-[15px] max-moresm:hidden ">
+              <div className="flex flex-row mt-[2%] pb-[15px] ">
                 <Sort />
               </div>
             </div>
           </div>
+<<<<<<< HEAD
         </div>
         <div className="flex flex-col ml-[1%]">
           <div className="bg-black flex flex-row gap-[18px] mt-[6%] max-moresm:hidden ">
@@ -168,11 +152,30 @@ function UI() {
                   <MobileToolBar />
                 </div>
               </div>
+=======
+          <div className="flex flex-col ml-[1%]">
+            <div className=" bg-black flex flex-row gap-[18px] mt-[2%] max-moresm:hidden ">
+              <Cardnew />
+            </div>
+
+            {/* <div className="ml-[22px] mt-[27px]  max-sm:pl-[40%] ">Popular</div> */}
+            {/* <div>Popular</div> */}
+            <div className="mt-[3%] flex-wrap flex-1">
+              {/* <div className="mx-[22px] mt-[27px]  gap-[10px] flex flex-row flex-wrap max-sm:mt-[60px]"> */}
+              <VideoItem />
+>>>>>>> 544cd4c4fec0b774270ddc8424195c9eecda5cdd
             </div>
           </div>
         </div>
       </div>
+<<<<<<< HEAD
     </div>
+=======
+      <div className="morethaniphone12:hidden">
+        <MobileToolBar />
+      </div>
+    </>
+>>>>>>> 544cd4c4fec0b774270ddc8424195c9eecda5cdd
   );
 }
 

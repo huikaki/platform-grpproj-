@@ -8,7 +8,7 @@ function Search() {
   return (
     <div>
       <div className="flex flex-row mt-4">
-        <div className="mx-auto flex flex-row max-xl:  max-sm:hidden">
+        <div className="mx-auto flex flex-row  max-sm:hidden">
           <div className="">
             <InputBar />
             {/* <input className="outline-none	p-[10px] text-[16px] border-none	search-bar  bg-[#181818] max-4k:w-[1000px] max-2k:w-[800px] max-less2k:w-[700px] max-2xl:w-[600px] max-xl:w-[500px] max-lg:w-[360px] max-moremd:w-[200px]max-sm:hidden" /> */}
@@ -28,7 +28,7 @@ function Search() {
           />
         </div>
 
-        <div className="hoverEffectEl tools flex flex-row  ">
+        <div className="hoverEffectEl tools flex flex-row max-sm:ml-[86%] ">
           <Image
             src="/record.svg"
             height={24}
@@ -47,6 +47,7 @@ function Search() {
             width={24}
             className="hoverEffectEl alert mt-2.5"
           />
+<<<<<<< HEAD
           <div className="search-group mt-2 flex flex-row max-sm:hidden">
             {/* search box */}
             <input
@@ -98,6 +99,14 @@ function Search() {
               />
             </Link>
           </div>
+=======
+          <Image
+            src="/Profile.svg"
+            height={24}
+            width={24}
+            className="hoverEffectEl Profile mt-2.5"
+          />
+>>>>>>> 544cd4c4fec0b774270ddc8424195c9eecda5cdd
         </div>
       </div>
     </div>

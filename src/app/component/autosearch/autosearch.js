@@ -85,7 +85,7 @@ const getSuggestions = (value) => {
 const getSuggestionValue = (suggestion) => suggestion.name;
 
 const renderSuggestion = (suggestion) => (
-  <div className="absolute bg-[#323232] max-4k:w-[1000px] max-2k:w-[800px] max-less2k:w-[700px] max-2xl:w-[600px] max-xl:w-[500px] max-lg:w-[360px] max-moremd:w-[200px]max-sm:hidden">
+  <div className=" bg-[#323232] max-4k:w-[1000px] max-2k:w-[800px] max-less2k:w-[700px] max-2xl:w-[600px] max-xl:w-[500px] max-lg:w-[360px] max-moremd:w-[200px]  max-lesssm:border-2 max-sm:hidden">
     {suggestion.name}
   </div>
 );
@@ -116,7 +116,7 @@ const InputBar = () => {
 
   return (
     <Autosuggest
-      //   theme={theme}
+      theme={{ suggestionsContainer: "absolute" }}
       suggestions={suggestions}
       onSuggestionsFetchRequested={onSuggestionsFetchRequested}
       onSuggestionsClearRequested={onSuggestionsClearRequested}
