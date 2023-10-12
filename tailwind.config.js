@@ -7,6 +7,12 @@ module.exports = {
   ],
   theme: {
     screens: {
+      iphone12: "390px",
+
+      morethaniphone12: "391px",
+
+      lesssm: "639px",
+
       sm: "640px",
       // => @media (min-width: 640px) { ... }
 
@@ -23,7 +29,10 @@ module.exports = {
       morelg: "1210px",
 
       xl: "1280px",
+      morexl: "1300px",
       // => @media (min-width: 1280px) { ... }
+      less2xls: "1152px",
+
       less2xl: "1372px",
 
       "2xl": "1536px",
