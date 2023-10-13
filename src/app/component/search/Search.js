@@ -7,7 +7,7 @@ import Link from "next/link";
 import Head from "next/head";
 function Search() {
   return (
-    <Head>
+    <div>
       <div className="search-group mt-2 flex flex-row max-sm:hidden">
         {/* search box */}
         <input
@@ -59,7 +59,7 @@ function Search() {
           />
         </Link>
       </div>
-    </Head>
+    </div>
   );
 }
 export default Search;

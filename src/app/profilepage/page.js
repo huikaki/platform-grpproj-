@@ -6,128 +6,161 @@ import { useAuthContext } from "../contexts/AuthContext";
 import { redirect } from "next/dist/server/api-utils";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 // import { getDocs, collection } from "firebase/firestore";
 // import { firestore } from "../firebaseConfig";
 import "./page.scss";
 import EditProfile from "../editProfile/page";
 import { firestore } from "../firebaseConfig";
 import { collection, doc, getDoc } from "firebase/firestore/lite";
+import "bootstrap/dist/css/bootstrap.css";
+import "./profile.scss";
 
 export default function Profile() {
   const { user } = useAuthContext();
   const { logout } = useAuthContext();
   const route = useRouter();
   console.log("Profile", user);
+  const [loading, setLoading] = useState(true);
   const [show, setShow] = useState(false);
-  const [blogs, setBlogs] = useState([]);
-
-  const fetchData = async () => {
-    try {
-      const userRef = doc(firestore, "users", user.uid);
-      const docSnapshot = await getDoc(userRef);
-      if (docSnapshot.exists()) {
-        const userData = docSnapshot.data();
-        console.log(userData);
-        setBlogs(userData);
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  };
 
   useEffect(() => {
-    // setLoading(true);
+    setLoading(true);
     if (user == null) {
-      // setLoading(false);
+      setLoading(false);
       route.push("/login");
     } else {
-      fetchData();
+      setLoading(false);
     }
   }, [user]);
-
   const handlelogout = () => {
     logout().then(() => {
       route.push("/");
     });
   };
   if (show) {
-    return <EditProfile name={show}></EditProfile>;
+    return (
+      <EditProfile
+        name={show}
+        onClose={() => {
+          setShow(false);
+        }}
+      ></EditProfile>
+    );
   }
 
   return (
-    <div className="page">
-      <Container fluid>
-        <Row>
-          <Col md lg xl xxl={4} xs={12}>
-            <div className="container">
-              <div className="profilepic">
-                <img src="user.imageLink"></img>
-              </div>
-              <div className="profiledes">
-                <table className="proform">
-                  <tr>
-                    <td>User Name</td>
-                    <td>First Name</td>
-                    <td>Last Name</td>
-                    <td>Desrciption</td>
-                  </tr>
-                  {/* <tr>
-                    <td>{user.UserName}</td>
-                    <td>{user.FirstName}</td>
-                    <td>{user.LastName}</td>
-                    <td>{user.Desrciption}</td>
-                  </tr> */}
-                </table>
-              </div>
-            </div>
-          </Col>
-          <Col md lg xl xxl={8} xs={12}>
-            1 of 1
-          </Col>
-        </Row>
-      </Container>
-
+    <section class="h-100 gradient-custom-2">
+      <MobileToolBar />
       {user && (
-        <div class="h-screen w-screen">
-          <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-auto h-screen">
-            <div class="flex flex-col items-center pb-10">
-              <img
-                class="w-20 h-20 p-1 mt-10 rounded-full ring-2 ring-gray-300 dark:ring-gray-500"
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjpW3wXWamB24V30JS_MuFNd9DHw0YKo3L0A&usqp=CAU"
-                alt="Bordered avatar"
-              />
-
-              <h5 class="mb-1 text-xl pt-8 font-medium text-gray-900 dark:text-white">
-                {user?.email}
-              </h5>
-              <span class="text-sm pt-4 text-gray-500 dark:text-gray-400">
-                Visual Designer
-              </span>
+        <div class="container py-5 h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col col-lg-9 col-xl-7">
+              <div class="card">
+                <div class="box1 rounded-top text-white d-flex flex-row">
+                  <div class="ms-4 mt-5 d-flex flex-column profilePic">
+                    <img
+                      src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp"
+                      alt="Generic placeholder image"
+                      class=" img-fluid img-thumbnail mt-4 mb-2"
+                    />
+                    {/* <Link href="/editProfile"> */}
+                    <button
+                      type="button"
+                      class="editProfile btn btn-outline-dark"
+                      data-mdb-ripple-color="dark"
+                      onClick={() => {
+                        setShow(true);
+                      }}
+                    >
+                      Edit profile
+                    </button>
+                    {/* </Link> */}
+                    <button
+                      type="button"
+                      class="editProfile btn btn-outline-dark"
+                      data-mdb-ripple-color="dark"
+                      onClick={handlelogout}
+                    >
+                      Log Out
+                    </button>
+                  </div>
+                  <div class="ms-3 info">
+                    <h5>{user?.name}</h5>
+                    <p>New York</p>
+                    <p>{user?.email}</p>
+                  </div>
+                </div>
+                <div class="p-4 text-black">
+                  <div class="d-flex justify-content-end text-center py-1">
+                    <div>
+                      <p class="mb-1 h5">253</p>
+                      <p class="small text-muted mb-0">Video</p>
+                    </div>
+                    <div class="px-3">
+                      <p class="mb-1 h5">1026</p>
+                      <p class="small text-muted mb-0">Followers</p>
+                    </div>
+                    <div>
+                      <p class="mb-1 h5">478</p>
+                      <p class="small text-muted mb-0">Following</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body p-4 text-black">
+                  <div class="mb-5">
+                    <p class="lead fw-normal mb-1">About</p>
+                    <div class="p-4">
+                      <p class="font-italic mb-1">Web Developer</p>
+                      <p class="font-italic mb-1">Lives in New York</p>
+                      <p class="font-italic mb-0">Photographer</p>
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-between align-items-center mb-4">
+                    <p class="lead fw-normal mb-0">Recent Video</p>
+                    <p class="mb-0">
+                      <a href="#!" class="text-muted">
+                        Show all
+                      </a>
+                    </p>
+                  </div>
+                  <div class="row g-2">
+                    <div class="col mb-2">
+                      <img
+                        src="https://i.ytimg.com/vi/nHhAEkG1y2U/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDvciMncLXs77ExKwjm7MOOnUgoLQ"
+                        alt="video 1"
+                        class="w-100 rounded-3"
+                      />
+                    </div>
+                    <div class="col mb-2">
+                      <img
+                        src="https://i.ytimg.com/vi/FExp9YuTzbY/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAfob0IthwFxAbg9GppTTGcM95SiA"
+                        alt="image 1"
+                        class="w-100 rounded-3"
+                      />
+                    </div>
+                  </div>
+                  <div class="row g-2">
+                    <div class="col">
+                      <img
+                        src="https://i.ytimg.com/vi/Z4Gr4X2dxXo/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDmBrfxuAlWpAvaAVPJkFtz5_m5QA"
+                        alt="image 1"
+                        class="w-100 rounded-3"
+                      />
+                    </div>
+                    <div class="col">
+                      <img
+                        src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(114).webp"
+                        alt="image 1"
+                        class="w-100 rounded-3"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <button
-              class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
-              onClick={() => {
-                setShow(true);
-              }}
-            >
-              Edit Profile
-            </button>
-            <button
-              class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
-              onClick={handlelogout}
-            >
-              Log Out
-            </button>
           </div>
-          this is profile
-          <main className="flex min-h-screen flex-col items-center justify-between p-24">
-            <MobileToolBar></MobileToolBar>
-          </main>
         </div>
       )}
-    </div>
+    </section>
   );
 }
