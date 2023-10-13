@@ -6,7 +6,7 @@ import InputBar from "../autosearch/autosearch";
 import Link from "next/link";
 function Search() {
   return (
-    < HEAD >
+    <div >
           <div className="search-group mt-2 flex flex-row max-sm:hidden">
             {/* search box */}
             <input
@@ -58,7 +58,8 @@ function Search() {
               />
             </Link>
           </div>
-     </HEAD>
+     </div>
+    
           
   );
 }

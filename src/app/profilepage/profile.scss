@@ -1,0 +1,38 @@
+.gradient-custom-2 {
+    /* fallback for old browsers */
+    background: #fbc2eb;
+    
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, rgb(0, 0, 0), rgb(67, 67, 67));
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, rgb(0, 0, 0), rgb(78, 78, 78))
+    }
+
+.profilePic>img{
+  width: 150px; 
+  z-index: 1;
+}
+
+.profilePic>buton{
+   
+    z-index: 1;
+  }
+
+  .box1{
+    background-color: gray;
+  }
+
+  .profilePic{
+    width: 150px;
+  }
+
+  .info{
+    margin-top: 130px
+  }
+  .editProfile{
+    z-index: 1;
+  }
+  .text-black{
+    color: bisque;
+  }
