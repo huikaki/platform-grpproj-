@@ -42,6 +42,7 @@ function Page() {
         //   userEmail: user.email,
         //   userPassword: user.password,
         // });
+        alert("sign in success")
       })
       .catch((error) => {
         const errorCode = error.code;
