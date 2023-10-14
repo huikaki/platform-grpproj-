@@ -8,7 +8,11 @@ import CameraAltIcon from "@mui/icons-material/CameraAlt";
 import ChaletIcon from "@mui/icons-material/Chalet";
 export default function IconAvatars() {
   return (
-    <Stack direction="row" spacing={2}>
+    <Stack
+      direction="row"
+      spacing={2}
+      style={{ "justify-content": "space-evenly" }}
+    >
       <Avatar sx={{ bgcolor: pink[500] }}>
         <PageviewIcon />
       </Avatar>

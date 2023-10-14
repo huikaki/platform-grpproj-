@@ -1,11 +1,10 @@
 export const Hotgamestyle = {
   container: {
     width: "100%",
-    display: "none",
+    margin: "auto",
+    "justify-content": "space-evenly",
   },
-  "@media only screen and (max-width: 340px)": {
-    container: {
-      display: "block",
-    },
+  word: {
+    fontSize: "1rem",
   },
 };
