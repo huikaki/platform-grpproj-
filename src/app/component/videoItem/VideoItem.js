@@ -56,7 +56,7 @@ function VideoItem() {
                     const videoEle = e.target;
                     if (e.target.paused) {
                       e.target.play();
-                      window.open(item.videoUrl, "_blank");
+                      // window.open(item.videoUrl, "_blank");
                     } else {
                       e.target.pause();
                     }
