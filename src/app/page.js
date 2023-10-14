@@ -77,8 +77,14 @@ function UI() {
               </div>
             </div>
           </div>
-          <div style={Hotgamestyle.container}>
-            <IconAvatars></IconAvatars>
+          <div className="morethaniphone12:hidden" style={Hotgamestyle.word}>
+            Hot Game
+          </div>
+          <div
+            className="morethaniphone12:hidden"
+            style={Hotgamestyle.container}
+          >
+            <IconAvatars />
           </div>
           <div className="flex flex-col ml-[1%]">
             <div className=" bg-black flex flex-row gap-[18px] mt-[2%] max-moresm:hidden ">
