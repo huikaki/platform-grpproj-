@@ -16,6 +16,8 @@ import Card from "./component/card/Card";
 import InputBar from "./component/autosearch/autosearch";
 import Cardnew from "./component/card/cardnew";
 import MobileToolBar from "./component/mobiletoolbar/mobiletoolbar";
+import IconAvatars from "./component/mobileicongroup/hotgame";
+import { Hotgamestyle } from "./component/mobileicongroup/style";
 
 function UI() {
   const [display, setDisplay] = useState(false);
@@ -25,12 +27,11 @@ function UI() {
     : "ToggleChangeDivStyle";
 
   return (
-    
     <div>
       {/* {data.map((item) => (
         <div key={item.id}>{item.title}</div>
       ))} */}
-      <div className="flex flex-row h-[100%]">
+      <div className="flex flex-row h-[2556px]">
         <div>
           <Image
             src="./Hamburger.svg"
@@ -76,6 +77,9 @@ function UI() {
               </div>
             </div>
           </div>
+          <div style={Hotgamestyle.container}>
+            <IconAvatars></IconAvatars>
+          </div>
           <div className="flex flex-col ml-[1%]">
             <div className=" bg-black flex flex-row gap-[18px] mt-[2%] max-moresm:hidden ">
               <Cardnew />
@@ -93,7 +97,7 @@ function UI() {
       <div className="morethaniphone12:hidden">
         <MobileToolBar />
       </div>
-   </div>
+    </div>
   );
 }
 
