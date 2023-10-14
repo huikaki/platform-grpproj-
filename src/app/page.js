@@ -31,7 +31,7 @@ function UI() {
       {/* {data.map((item) => (
         <div key={item.id}>{item.title}</div>
       ))} */}
-      <div className="flex flex-row h-[100%]">
+      <div className="flex flex-row h-[2556px]">
         <div>
           <Image
             src="./Hamburger.svg"
