@@ -16,7 +16,8 @@ import Card from "./component/card/Card";
 import InputBar from "./component/autosearch/autosearch";
 import Cardnew from "./component/card/cardnew";
 import MobileToolBar from "./component/mobiletoolbar/mobiletoolbar";
-import Link from "next/link";
+import IconAvatars from "./component/mobileicongroup/hotgame";
+import { Hotgamestyle } from "./component/mobileicongroup/style";
 
 function UI() {
   const [display, setDisplay] = useState(false);
@@ -75,6 +76,9 @@ function UI() {
                 <Sort />
               </div>
             </div>
+          </div>
+          <div style={Hotgamestyle.container}>
+            <IconAvatars></IconAvatars>
           </div>
           <div className="flex flex-col ml-[1%]">
             <div className=" bg-black flex flex-row gap-[18px] mt-[2%] max-moresm:hidden ">
