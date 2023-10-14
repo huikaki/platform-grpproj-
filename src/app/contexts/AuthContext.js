@@ -11,30 +11,32 @@ export function useAuthContext() {
 export default function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [isLoginFormSubmitted, setIsLoginFormSubmitted] = useState(false);
+
   const logout = () => {
     localStorage.removeItem("token");
+
     setUser(null);
   };
 
   useEffect(() => {
-    if (isLoginFormSubmitted) {
-      onAuthStateChanged(database, (user) => {
-        if (user.refreshToken) {
-          // console.log("user.refreshToken", user.refreshToken);
-          // console.log("user", user);
-          // console.log("user email", user.email);
-          setUser({
-            email: user.email,
-            uid: user.uid,
-            refreshToken: user.refreshToken,
-          });
-        } else {
-          //
-          setUser(null);
-        }
-      });
-    }
-  }, [isLoginFormSubmitted]);
+    // if (isLoginFormSubmitted) {
+    onAuthStateChanged(database, (user) => {
+      if (user.refreshToken) {
+        // console.log("user.refreshToken", user.refreshToken);
+        // console.log("user", user);
+        // console.log("user email", user.email);
+        setUser({
+          email: user.email,
+          uid: user.uid,
+          refreshToken: user.refreshToken,
+        });
+      } else {
+        //
+        setUser(null);
+      }
+    });
+    // }
+  }, []);
 
   return (
     <AuthContext.Provider
