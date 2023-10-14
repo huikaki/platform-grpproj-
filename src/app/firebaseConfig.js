@@ -8,6 +8,7 @@ import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
+  browserLocalPersistence,
 } from "firebase/auth";
 
 export const firebaseConfig = {
@@ -25,6 +26,7 @@ const analytics = getAnalytics(app);
 export const firestore = getFirestore(app);
 export const storage = getStorage(app);
 export const database = getAuth(app);
+database.setPersistence(browserLocalPersistence);
 export {
   createUserWithEmailAndPassword,
   onAuthStateChanged,

@@ -1,7 +1,7 @@
 "use client";
 // import { Form, Button, Card } from "react-bootstrap";
 import Link from "next/link";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
@@ -19,11 +19,23 @@ import {
   uploadBytesResumable,
   getDownloadURL,
 } from "firebase/storage";
-import { addDoc, collection, doc } from "firebase/firestore/lite";
+import { addDoc, collection, doc, setDoc } from "firebase/firestore/lite";
 import { firestore } from "../firebaseConfig";
 import { document } from "postcss";
 
+import * as React from "react";
+import Box from "@mui/material/Box";
+// import CircularProgress from "@mui/material/CircularProgress";
+import { green } from "@mui/material/colors";
+import Button from "@mui/material/Button";
+import Fab from "@mui/material/Fab";
+import CheckIcon from "@mui/icons-material/Check";
+import SaveIcon from "@mui/icons-material/Save";
+
 function EditProfile(prop) {
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const timer = useRef();
   const [onIcon, setOnIcon] = useState(false);
   const route = useRouter();
   const { user } = useAuthContext();
@@ -33,6 +45,31 @@ function EditProfile(prop) {
     setOpen(false);
     prop.onClose();
   };
+
+  const buttonSx = {
+    ...(success && {
+      bgcolor: green[500],
+      "&:hover": {
+        bgcolor: green[700],
+      },
+    }),
+  };
+  useEffect(() => {
+    return () => {
+      clearTimeout(timer.current);
+    };
+  }, []);
+  const handleButtonClick = () => {
+    if (!loading) {
+      setSuccess(false);
+      setLoading(true);
+      timer.current = window.setTimeout(() => {
+        setSuccess(true);
+        setLoading(false);
+      }, 2000);
+    }
+  };
+
   const [progressUp, setProgressUp] = useState(0);
   const handleSelectedFile = (file) => {
     if (file.size < 1000000000000) {
@@ -93,7 +130,7 @@ function EditProfile(prop) {
         imageLink: url,
       };
       const ref = doc(firestore, `users/${user.uid}`);
-      addDoc(ref, docDate, { merge: true })
+      setDoc(ref, docDate, { merge: true })
         .then(() => {
           console.log("success");
         })
@@ -222,10 +259,41 @@ function EditProfile(prop) {
             )}
             <div className="uploadformbutton">
               <div className="closebutton">
-                <button onClick={handleClose}>Close</button>
+                <Box sx={{ m: 1, position: "relative" }}>
+                  <Button
+                    onClick={handleClose}
+                    variant="contained"
+                    sx={buttonSx}
+                  >
+                    Close
+                  </Button>
+                </Box>
               </div>
               <div className="uploadbutton">
-                <button type="submit">Submit</button>
+                <Box sx={{ m: 1, position: "relative" }}>
+                  <Button
+                    type="submit"
+                    variant="contained"
+                    sx={buttonSx}
+                    disabled={loading}
+                    onClick={handleButtonClick}
+                  >
+                    Submit
+                  </Button>
+                  {loading && (
+                    <CircularProgress
+                      size={24}
+                      sx={{
+                        color: green[500],
+                        position: "absolute",
+                        top: "50%",
+                        left: "50%",
+                        marginTop: "-12px",
+                        marginLeft: "-12px",
+                      }}
+                    />
+                  )}
+                </Box>
               </div>
             </div>
           </DialogContent>
