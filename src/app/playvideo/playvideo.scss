@@ -12,16 +12,38 @@ html { height:100%; }
 
 .video-continer{
     display: grid;
+    margin-left: 50px;
+    margin-right: 50px;
     
 }
 video{
     width:800px;
     height: 500px;
+
 }
 .card{
     display: flex;
+    margin-bottom: 10px;
 }
 .card >img{
     height: 100px;
     width: 200px;
+}
+
+.video-group{
+    display: flex;
+    margin-top:30px;
+}
+.craeterInfo{
+    display: flex;
+}
+.icon{
+    border-radius: 50px;
+    height: 50px;
+    width: 50px;
+    background-color: white;
+}
+.icon>img{
+    border-radius: 50px;
+
 }
