@@ -4,7 +4,7 @@ I was responsible for creating the functions:
 2. login function (user auth + useContext)
 3. profile page
 4. navbar in mobile version
-5. upload function (connect to the login acc and database)
+5. upload function (connect to the login acc and database)  
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
